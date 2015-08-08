@@ -6,10 +6,12 @@
 		</div>
 		<div class="panel-body">
 			<div style="color: #3BB206;"><%= time_ago_in_words(post.created_at) %></div>
-			<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_<%=post.id%>">Edit</button>
-				<%= link_to 'Destroy', post, method: :delete, class: "btn btn-danger", remote: true %>
-			</div>
+			<% if current_user && post.user_id = current_user.id %>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_<%=post.id%>">Edit</button>
+                <%= link_to 'Destroy', post, method: :delete, class: "btn btn-danger", remote: true %>
+              </div>
+            <% end %>
 		</div>
 	</div>
 
@@ -31,6 +33,10 @@
             <div class="field">
               <%= f.label :content %>
               <%= f.text_area :content, class: "form-control"%>
+            </div>
+            <div class="field">
+              <%= f.label :private %>
+              <%= f.check_box :private, class: "form-control"%>
             </div>
           </div>
           <div class="modal-footer">

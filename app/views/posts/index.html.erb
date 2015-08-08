@@ -31,6 +31,10 @@
               <%= f.label :content %>
               <%= f.text_area :content, class: "form-control post_content"%>
             </div>
+            <div class="field">
+              <%= f.label :private %>
+              <%= f.check_box :private %>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
