@@ -2,9 +2,9 @@
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h3 class="panel-title"><%= %><%= post.title %></h3>
-			<p><%= post.content %></p>
 		</div>
 		<div class="panel-body">
+          <p><%= post.content %></p>
 			<div style="color: #3BB206;"><%= time_ago_in_words(post.created_at) %></div>
 			<% if current_user && post.user_id == current_user.id %>
               <div class="btn-group" role="group" aria-label="...">
