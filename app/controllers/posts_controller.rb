@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = (Post.all.where(private: false) + current_user.posts if current_user).uniq
+    @posts = (Post.all.where(pvt: false) + current_user.posts if current_user).uniq
     @post = Post.new
   end
 
@@ -75,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :private)
+      params.require(:post).permit(:title, :content, :pvt)
     end
 end
