@@ -1,15 +1,15 @@
 <div class="col-md-4 blog-main box text-center" id="post_<%= post.id%>">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h3 class="panel-title"><%= post.title %></h3>
+			<h3 class="panel-title"><%= %><%= post.title %></h3>
 			<p><%= post.content %></p>
 		</div>
 		<div class="panel-body">
 			<div style="color: #3BB206;"><%= time_ago_in_words(post.created_at) %></div>
-			<% if current_user && post.user_id = current_user.id %>
+			<% if current_user && post.user_id == current_user.id %>
               <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_<%=post.id%>">Edit</button>
-                <%= link_to 'Destroy', post, method: :delete, class: "btn btn-danger", remote: true %>
+                <button type="button" data-toggle="modal" data-target="#myupdatepost_<%=post.id%>">Edit</button>
+                <%= button_to "Delete", post, method: :delete, data: {confirm: "Are you sure?"}, remote:true %>
               </div>
             <% end %>
 		</div>

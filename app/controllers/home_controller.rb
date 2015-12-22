@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.where(private: false)
+    @posts = Post.all.where(private: false)
   end
 end
