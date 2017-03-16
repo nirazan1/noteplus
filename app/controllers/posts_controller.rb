@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = (Post.all.where(pvt: false) + current_user.posts if current_user).order('updated_at DESC').uniq
+    @posts = current_user.posts.order('updated_at DESC')
     @post = Post.new
   end
 
