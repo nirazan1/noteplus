@@ -1,18 +1,17 @@
 <div class="col-md-4" id="post_<%= post.id%>">
 	<div class="bs-component">
-    <div class="container">
-      <a href="#box_<%=post.id%>" class="btn btn-info" data-toggle="collapse"><%= post.title %></a>
-      <div id="box<%=post.id%>" class="collapse">
-        <%= post.content %>
-      </div>
-      <div style="color: #3BB206;"><%= time_ago_in_words(post.created_at) %></div>
-      <% if current_user && post.user_id == current_user.id %>
-        <div class="btn-group" role="group" aria-label="...">
-          <button type="button" data-toggle="modal" data-target="#myupdatepost_<%=post.id%>">Edit</button>
-          <%= button_to "Delete", post, method: :delete, data: {confirm: "Are you sure?"}, remote:true %>
-        </div>
-      <% end %>
-    </div>
+		<div class="alert alert-dismissible" style="background-color: #f8f8f8;">
+      <h3 class="panel-title"><%= post.title %></h3>
+      <hr>
+      <p><%= post.content %></p>
+			<div style="color: #3BB206;"><%= time_ago_in_words(post.created_at) %></div>
+			<% if current_user && post.user_id == current_user.id %>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" data-toggle="modal" data-target="#myupdatepost_<%=post.id%>">Edit</button>
+                <%= button_to "Delete", post, method: :delete, data: {confirm: "Are you sure?"}, remote:true %>
+              </div>
+            <% end %>
+		</div>
 	</div>
 
 	<%= form_for(post, :method => :put, remote: true) do |f| %>
