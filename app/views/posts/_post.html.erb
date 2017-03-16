@@ -1,10 +1,9 @@
 <div class="col-md-4" id="post_<%= post.id%>">
 	<div class="bs-component">
 		<div class="alert alert-dismissible" style="background-color: #f8f8f8;">
-			<h3 class="panel-title"><%= %><%= post.title %></h3>
-		</div>
-		<div class="alert alert-dismissible" style="background-color: #f8f8f8;">
-          <p><%= post.content %></p>
+      <h3 class="panel-title"><%= post.title %></h3>
+      <hr>
+      <p><%= post.content %></p>
 			<div style="color: #3BB206;"><%= time_ago_in_words(post.created_at) %></div>
 			<% if current_user && post.user_id == current_user.id %>
               <div class="btn-group" role="group" aria-label="...">
