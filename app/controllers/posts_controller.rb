@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = current_user.posts.order('updated_at DESC')
+    @posts = current_user.posts.order('created_at ASC')
     @post = Post.new
   end
 
