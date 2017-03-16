@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = (Post.all.where(pvt: false) + current_user.posts if current_user).uniq
+    @posts = (Post.all.where(pvt: false) + current_user.posts if current_user).uniq.order('updated_at DESC')
     @post = Post.new
   end
 
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
-        format.js              
+        format.js
       end
     end
   end
