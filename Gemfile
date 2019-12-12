@@ -4,10 +4,10 @@ ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
 end
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.15'
   gem 'rails_12factor'
 end
 gem "omniauth-google-oauth2", "~> 0.2.1"
