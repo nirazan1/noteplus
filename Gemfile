@@ -10,7 +10,7 @@ group :production do
   gem 'pg', '~> 0.15'
   gem 'rails_12factor'
 end
-gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "omniauth-google-oauth2", "~> 0.8.0"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
